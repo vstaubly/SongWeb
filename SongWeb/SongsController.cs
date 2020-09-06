@@ -17,7 +17,7 @@ namespace SongWeb
     public class SongsController : ControllerBase
     {
         OdbcConnection conn = null;
-        string connStr = "DSN=SongsDB";
+        string connStr = "DSN=SongsDB";  // figure out way to make this configurable
 
         SongFile[] songs = new SongFile[] { // dummy song list until DB code is done
             new SongFile { ID = 1, Title = "Puff the Magic Dragon", Artist = "Peter, Paul, and Mary", Album = "Ten Years After", Year = "1970", Track = "1" },
