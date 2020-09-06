@@ -21,18 +21,19 @@ function wrapSong(songObj) {
 function ajaxHandleReply(data) {
     var testDiv = document.getElementById("ajaxtest");
     if (testDiv) {
-        var html = "";
-        if (data.d) {
-            for (var i = 0; i < data.d.length; i++) {
-                html += data[i] + "<br/>";
+        var html = "<table border=1>";
+        if (data) {
+            for (var i = 0; i < data.length; i++) {
+                html += "" + wrapSong(data[i]);
             }
         }
+        html += "</table>";
         testDiv.innerHTML = html;
     }
 }
 function ajaxMakeRequest() {
     $.ajax({
-        url: "api/SongsController",
+        url: "/api/songs",
         method: 'GET',
         dataType: 'json',
         success: ajaxHandleReply

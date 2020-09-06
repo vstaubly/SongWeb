@@ -23,6 +23,8 @@ namespace SongWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +48,8 @@ namespace SongWeb
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
+                // above per https://exceptionnotfound.net/an-overview-of-attribute-routing-in-asp-net-core-3-0-mvc/
             });
         }
     }

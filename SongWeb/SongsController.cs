@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SongIndexer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,12 +14,16 @@ namespace SongWeb
     public class SongsController : ControllerBase
     {
         //OdbcConnection conn = null;
+        SongFile[] songs = new SongFile[] { // dummy song list until DB code is done
+            new SongFile { ID = 1, Title = "Puff the Magic Dragon", Artist = "Peter, Paul, and Mary", Album = "Ten Years After", Year = "1970", Track = "1" },
+            new SongFile { ID = 2, Title = "Black Sabbath", Artist = "Black Sabbath", Album = "Black Sabbath", Year = "1970", Track = "1" }
+        };
 
         // GET: api/<SongsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<SongFile> Get()
         {
-            return new string[] { "value1", "value2" };
+            return songs;
         }
 
         // GET api/<SongsController>/5
