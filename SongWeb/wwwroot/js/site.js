@@ -18,6 +18,26 @@ function wrapSong(songObj) {
     html += "</tr>";
     return html;
 }
+function ajaxHandleReply(data) {
+    var testDiv = document.getElementById("ajaxtest");
+    if (testDiv) {
+        var html = "";
+        if (data.d) {
+            for (var i = 0; i < data.d.length; i++) {
+                html += data[i] + "<br/>";
+            }
+        }
+        testDiv.innerHTML = html;
+    }
+}
+function ajaxMakeRequest() {
+    $.ajax({
+        url: "api/SongsController",
+        method: 'GET',
+        dataType: 'json',
+        success: ajaxHandleReply
+    });
+}
 function requestTable() {
     var songTable = document.getElementById("songtable");
     if (songTable) {
@@ -27,4 +47,5 @@ function requestTable() {
     } else {
         console.log("SongTable element not found");
     }
+    ajaxMakeRequest();
 }
