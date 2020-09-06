@@ -67,6 +67,8 @@ namespace SongWeb
                             list.Add(song);
                         }
                     }
+                    reader.Close();
+                    cmd.Dispose();
                     return list;
                 } catch (Exception e) {
                     Console.Error.WriteLine("Error reading from DB: " + e);
