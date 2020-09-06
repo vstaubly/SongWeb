@@ -1,14 +1,20 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Song List";
 }
 
+<script src="/js/site.js" />
+
+<script>
+    window.onload = requestTable;
+</script>
+
 <div class="text-center">
-    <h1 class="display-4">Hello world</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Song Database</h1>
+    <p>Here are a list of your songs that you can search through and sort by various criteria.</p>
     <div>
-        <table border="1">
+        <table border="1" id="songtable">
             <tr><th>ID</th><th>Song Title</th><th>Artist/Band</th><th>Album</th><th>Yeah</th><th>Track #</th></tr>
         </table>
     </div>
