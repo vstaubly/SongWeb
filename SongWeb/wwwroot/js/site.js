@@ -3,9 +3,6 @@
 
 // Write your Javascript code.
 var songTableHeader = "<tr><th>ID</th><th>Song Title</th><th>Artist/Band</th><th>Album</th><th>Yeah</th><th>Track #</th></tr>";
-var dummySong = {
-    id: 1, title: "Blowin' In The Wind", artist: "Peter, Paul, and Mary", album: "Ten Years After", year: "1970", track: "1"
-}
 
 function wrapSong(songObj) {
     var html = "<tr>";
@@ -19,15 +16,14 @@ function wrapSong(songObj) {
     return html;
 }
 function ajaxHandleReply(data) {
-    var testDiv = document.getElementById("ajaxtest");
+    var testDiv = document.getElementById("songtable");
     if (testDiv) {
-        var html = "<table border=1>";
+        var html = songTableHeader;
         if (data) {
             for (var i = 0; i < data.length; i++) {
                 html += "" + wrapSong(data[i]);
             }
         }
-        html += "</table>";
         testDiv.innerHTML = html;
     }
 }
@@ -40,13 +36,5 @@ function ajaxMakeRequest() {
     });
 }
 function requestTable() {
-    var songTable = document.getElementById("songtable");
-    if (songTable) {
-        tableHtml = songTableHeader;
-        tableHtml += wrapSong(dummySong);
-        songTable.innerHTML = tableHtml;
-    } else {
-        console.log("SongTable element not found");
-    }
     ajaxMakeRequest();
 }
