@@ -44,12 +44,15 @@ namespace SongWeb
 
         // GET: api/<SongsController>
         [HttpGet]
-        public IEnumerable<SongFile> Get()
+        public IEnumerable<SongFile> Get(string field = "", string value = "")
         {
             if (conn != null) {
                 try {
                     List<SongFile> list = new List<SongFile>();
-                    string queryStr = "SELECT id, title, artist, album, year, track FROM songs ORDER BY id";
+                    string queryStr = "SELECT id, title, artist, album, year, track FROM songs";
+                    if ((field != null) && (field.Length > 0) && (value != null) && (value.Length > 0))
+                        queryStr += " WHERE " + field + " LIKE '%" + value + "%'";
+                    queryStr += " ORDER BY id";
                     OdbcCommand cmd = new OdbcCommand(queryStr, conn);
                     OdbcDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows) {

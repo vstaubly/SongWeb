@@ -10,6 +10,16 @@
     <h1 class="display-4">Song Database</h1>
     <p>Here are a list of your songs that you can search through and sort by various criteria.</p>
     <div>
+        <p align="left">
+            Search by <select id="searchField">
+            <option>title</option>
+            <option>artist</option>
+            <option>album</option>
+            <option>year</option>
+        </select>
+        <input type="text" id="searchValue" /> <button title="Search" onclick="requestSearchBy()">Search</button>
+        <button title="Show All" onclick="requestTable()">Show All</button>
+        </p>
         <table border="1" id="songtable">
             <tr><th>ID</th><th>Song Title</th><th>Artist/Band</th><th>Album</th><th>Yeah</th><th>Track #</th></tr>
         </table>

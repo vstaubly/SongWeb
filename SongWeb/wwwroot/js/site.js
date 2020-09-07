@@ -35,6 +35,21 @@ function ajaxMakeRequest() {
         success: ajaxHandleReply
     });
 }
+function requestSearchBy() {
+    var fieldElement = document.getElementById("searchField");
+    var valueElement = document.getElementById("searchValue");
+    if (fieldElement && valueElement) {
+        var field = encodeURI(fieldElement.value);
+        var value = encodeURI(valueElement.value);
+        console.log("Search by " + field + " with value " + value);
+        $.ajax({
+            url: "/api/songs?field=" + field + "&value=" + value,
+            method: 'GET',
+            dataType: 'json',
+            success: ajaxHandleReply
+        });
+    }
+}
 function requestTable() {
     ajaxMakeRequest();
 }
