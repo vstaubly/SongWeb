@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+//  Basic REST controller, right now, only GET operation supported...
+//     may eventually supporting modify if we allow users to add notes or tweak ID3 data
+//
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;

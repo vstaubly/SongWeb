@@ -2,8 +2,11 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+
+// table header for easier DOM manipulation code
 var songTableHeader = "<tr><th>ID</th><th>Song Title</th><th>Artist/Band</th><th>Album</th><th>Yeah</th><th>Track #</th></tr>";
 
+// convert song from JSON object to table row (adding a class to each cell might help to jazz things up via CSS)
 function wrapSong(songObj) {
     var html = "<tr>";
     html += "<td>" + songObj.id + "</td>";
@@ -15,6 +18,8 @@ function wrapSong(songObj) {
     html += "</tr>";
     return html;
 }
+
+// when reply with data received, generate table with new song list
 function ajaxHandleReply(data) {
     var testDiv = document.getElementById("songtable");
     if (testDiv) {
@@ -33,8 +38,11 @@ function ajaxMakeRequest() {
         method: 'GET',
         dataType: 'json',
         success: ajaxHandleReply
+        // note: for finished project, add error handler
     });
 }
+
+// handle requesting the song table with searching by a particular field
 function requestSearchBy() {
     var fieldElement = document.getElementById("searchField");
     var valueElement = document.getElementById("searchValue");
@@ -47,9 +55,11 @@ function requestSearchBy() {
             method: 'GET',
             dataType: 'json',
             success: ajaxHandleReply
+            // note: for finished project, add error handler
         });
     }
 }
+
 function requestTable() {
-    ajaxMakeRequest();
+    ajaxMakeRequest(); // should just merge these functions since testing is over
 }

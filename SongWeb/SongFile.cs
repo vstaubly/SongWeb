@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+// Basic model class representing a song, copied from SongIndexer
+//     (for a larger project, might bundle model class plus DAO into library used by both programs)
+// 
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

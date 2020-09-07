@@ -23,8 +23,8 @@ namespace SongWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddControllers();
-            services.AddControllersWithViews();
+            services.AddControllers(); // may not be needed, see endpoints comment below
+            services.AddControllersWithViews(); // may not be needed, see endpoints comment below
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
